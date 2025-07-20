@@ -1,0 +1,4 @@
+.csv filter=lfs diff=lfs merge=lfs -text
+artifacts/*.kv filter=lfs diff=lfs merge=lfs -text
+artifacts/*.npy filter=lfs diff=lfs merge=lfs -text
+dataset/Suicide_Detection.csv filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,18 @@
+myenv
+Requirement_already_satisfied_emoji.txt
+# .gitignore
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment
+venv/
+.env
+
+# NLTK Data
+nltk_data/
+
+# IDE files
+.idea/
+.vscode/
