@@ -56,6 +56,8 @@ class FeatureEngineer:
             r"final goodbye|life is meaningless|i am done living|i do not want to live anymore)",
             flags=re.IGNORECASE
         )
+        self.self_ref_pat = re.compile(r'\b(i|me|my|myself)\b', flags=re.IGNORECASE)
+        self.negation_pat = re.compile(r'\b(no|not|never|nothing)\b', flags=re.IGNORECASE)
 
     def extract_features(self, series: pd.Series) -> np.ndarray:
         """Vectorized feature extraction using pandas string methods"""
@@ -64,8 +66,13 @@ class FeatureEngineer:
 
         features = pd.DataFrame()
         features['crisis_count'] = series.str.count(self.crisis_pat)
+        features['self_ref'] = series.str.count(self.self_ref_pat)
+        features['negations'] = series.str.count(self.negation_pat)
         features['char_count'] = series.str.len()
         features['word_count'] = series.str.split().str.len()
+        features['exclamation_count'] = series.str.count(r'!')
+        features['question_count'] = series.str.count(r'\?')
+        features['ellipsis_count'] = series.str.count(r'\.\.\.')
 
         return features.to_numpy(dtype=np.float32)
     

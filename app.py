@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 # Define paths to artifacts
-MODEL_PATH = os.path.join("artifacts", "stacking_tuned_model.joblib")
+MODEL_PATH = os.path.join("artifacts", "xgb_tuned_model.joblib")
 SCALER_PATH = os.path.join("artifacts", "ss_model.joblib")
 VOCAB_PATH = os.path.join("artifacts", "bert-base-uncased-vocab.txt")
 GLOVE_PATH = os.path.join("artifacts", "glove-wiki-gigaword-100.kv")
